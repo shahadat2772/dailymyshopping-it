@@ -23,6 +23,18 @@ const SignUp = () => {
     createUserWithEmailAndPassword(email, password);
   };
 
+  if (loading) {
+    toast.loading("About to redirect.", {
+      id: "loginLoading",
+    });
+  }
+
+  if (error) {
+    toast.error(error.message, {
+      id: "signInErr",
+    });
+  }
+
   if (error) {
     toast.error(error.message, {
       id: "signUpErr",
@@ -40,18 +52,21 @@ const SignUp = () => {
     <div className="loginContainer flex justify-center items-center h-[88vh]">
       <form onSubmit={(e) => handleSignUp(e)} className="form p-10" action="">
         <input
+          required
           placeholder="Email"
           className="h-[40px] rounded p-1 w-full block mt-3 mx-auto"
           type="email"
           id="email"
         />
         <input
+          required
           placeholder="Password"
           className="h-[40px] rounded p-1 w-full block mt-3 mx-auto"
           type="password"
           id="password"
         />
         <input
+          required
           placeholder="Confirm Password"
           className="h-[40px] rounded p-1 w-full block mt-3 mx-auto"
           type="password"

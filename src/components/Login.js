@@ -18,6 +18,12 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
   };
 
+  if (loading) {
+    toast.loading("About to redirect.", {
+      id: "loginLoading",
+    });
+  }
+
   if (error) {
     toast.error(error.message, {
       id: "signInErr",
@@ -25,6 +31,7 @@ const Login = () => {
   }
 
   if (user) {
+    toast.dismiss("loginLoading");
     toast.success("Signed in successfully.", {
       id: "signInToast",
     });
@@ -35,12 +42,14 @@ const Login = () => {
     <div className="loginContainer flex justify-center items-center h-[88vh]">
       <form onSubmit={(e) => handleSignUp(e)} className="form p-10" action="">
         <input
+          required
           placeholder="Email"
           className="h-[40px] rounded p-1 w-full block mt-3 mx-auto"
           type="email"
           id="email"
         />
         <input
+          required
           placeholder="Password"
           className="h-[40px] rounded p-1 w-full block mt-3 mx-auto"
           type="password"
@@ -49,7 +58,7 @@ const Login = () => {
         <input
           className="h-[40px] w-full block mt-3 fromSubmitButton mx-auto btn btn-sm btn-primary text-white"
           type="submit"
-          value="Sign up"
+          value="Login"
         />
         <Link
           to={"/signUp"}
