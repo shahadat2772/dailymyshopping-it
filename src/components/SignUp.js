@@ -42,6 +42,7 @@ const SignUp = () => {
   }
 
   if (user) {
+    toast.dismiss("loginLoading");
     toast.success("Signed up successfully.", {
       id: "signUpToast",
     });
