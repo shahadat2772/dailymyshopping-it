@@ -30,6 +30,9 @@ const SignUp = () => {
   }
 
   if (user) {
+    toast.success("Signed up successfully.", {
+      id: "signUpToast",
+    });
     navigate("/shop");
   }
 
