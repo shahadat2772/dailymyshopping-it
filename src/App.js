@@ -1,9 +1,12 @@
 import "./App.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <div className="App ">
+      {/* Nav */}
+      <Navbar />
+      <div className="max-w-7xl mx-auto"></div>
     </div>
   );
 }
