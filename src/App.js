@@ -1,6 +1,7 @@
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Cart from "./components/Cart";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import RequireAuth from "./components/RequireAuth";
@@ -19,6 +20,14 @@ function App() {
             element={
               <RequireAuth>
                 <Shop />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <RequireAuth>
+                <Cart />
               </RequireAuth>
             }
           />
