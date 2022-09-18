@@ -1,5 +1,6 @@
 import React from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link } from "react-router-dom";
 import auth from "../firebase.init";
 import "./Login.css";
 
@@ -28,9 +29,12 @@ const Login = () => {
           type="submit"
           value="Login"
         />
-        <p className="text-sm text-center mt-3 text-white cursor-pointer hover:text-info duration-500">
+        <Link
+          to={"/signUp"}
+          className="block text-sm text-center mt-3 text-white cursor-pointer hover:text-info duration-500"
+        >
           Don't have an account?
-        </p>
+        </Link>
       </form>
     </div>
   );

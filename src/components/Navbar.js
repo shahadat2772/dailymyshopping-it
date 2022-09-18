@@ -1,8 +1,13 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
+import auth from "../firebase.init";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const [user, loading] = useAuthState(auth);
+
   return (
     <div className="bg-base-100">
       <div className="navbar max-w-7xl mx-auto">
@@ -26,16 +31,25 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to={"/login"}
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-medium text-primary"
-                    : "font-medium hover:text-primary duration-300"
-                }
-              >
-                Login
-              </NavLink>
+              {user ? (
+                <button
+                  onClick={() => signOut(auth)}
+                  className="font-medium hover:text-primary duration-300"
+                >
+                  Log out
+                </button>
+              ) : (
+                <NavLink
+                  to={"/login"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "font-medium text-primary"
+                      : "font-medium hover:text-primary duration-300"
+                  }
+                >
+                  Login
+                </NavLink>
+              )}
             </li>
           </ul>
         </div>
