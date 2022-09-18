@@ -27,16 +27,33 @@ const Navbar = () => {
                     : "font-medium hover:text-primary duration-300"
                 }
               >
-                Shop
+                SHOP
               </NavLink>
             </li>
+            {user && (
+              <li className="">
+                <NavLink
+                  to={"/cart"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? " text-primary duration-300 indicator"
+                      : " hover:text-primary duration-300 mr-4 indicator"
+                  }
+                >
+                  <i className="fa-solid fa-cart-shopping"></i>
+                  <span className="badge badge-sm indicator-item bg-red-600">
+                    8
+                  </span>
+                </NavLink>
+              </li>
+            )}
             <li>
               {user ? (
                 <button
                   onClick={() => signOut(auth)}
                   className="font-medium hover:text-primary duration-300"
                 >
-                  Log out
+                  LOGOUT
                 </button>
               ) : (
                 <NavLink
