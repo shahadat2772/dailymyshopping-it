@@ -48,6 +48,12 @@ function App() {
       <div className="">
         <Routes>
           <Route
+            path="/"
+            element={
+              <Shop setItemsFromDb={setItemsFromDb} products={products} />
+            }
+          />
+          <Route
             path="/shop"
             element={
               <Shop setItemsFromDb={setItemsFromDb} products={products} />
