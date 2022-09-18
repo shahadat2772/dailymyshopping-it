@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { getCart, addToDb, removeFromDb } from "../utilities/fakedb";
+import React from "react";
+import { addToDb } from "../utilities/fakedb";
 
 const Shop = ({ products, setItemsFromDb }) => {
   return (

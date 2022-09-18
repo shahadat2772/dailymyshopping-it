@@ -59,7 +59,7 @@ function App() {
             path="/cart"
             element={
               <RequireAuth>
-                <Cart cart={cart} />
+                <Cart cart={cart} setItemsFromDb={setItemsFromDb} />
               </RequireAuth>
             }
           />

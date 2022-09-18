@@ -41,7 +41,7 @@ const Navbar = ({ cart }) => {
                   to={"/cart"}
                   className={({ isActive }) =>
                     isActive
-                      ? " text-primary duration-300 indicator"
+                      ? " text-primary duration-300 mr-4 indicator"
                       : " hover:text-primary duration-300 mr-4 indicator"
                   }
                 >
