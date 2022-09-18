@@ -1,0 +1,10 @@
+.form {
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.342);
+  border-radius: 40px;
+}
+
+.loginContainer {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("/public/assets/shopping.jpg");
+}

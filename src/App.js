@@ -7,10 +7,10 @@ import SignUp from "./components/SignUp";
 
 function App() {
   return (
-    <div className="App ">
+    <div className="App">
       {/* Nav */}
       <Navbar />
-      <div className="max-w-7xl mx-auto">
+      <div className="">
         <Routes>
           <Route path="/shop" element={<Shop />} />
           <Route path="/login" element={<Login />} />
