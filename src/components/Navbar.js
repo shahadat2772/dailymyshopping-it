@@ -5,8 +5,13 @@ import { NavLink } from "react-router-dom";
 import auth from "../firebase.init";
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ cart }) => {
   const [user, loading] = useAuthState(auth);
+
+  let totalItemQuantity = 0;
+  cart.forEach((element) => {
+    totalItemQuantity = element.quantity + totalItemQuantity;
+  });
 
   return (
     <div className="bg-base-100">
@@ -42,7 +47,7 @@ const Navbar = () => {
                 >
                   <i className="fa-solid fa-cart-shopping"></i>
                   <span className="badge badge-sm indicator-item bg-red-600">
-                    8
+                    {totalItemQuantity}
                   </span>
                 </NavLink>
               </li>

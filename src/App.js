@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -9,17 +10,18 @@ import Shop from "./components/Shop";
 import SignUp from "./components/SignUp";
 
 function App() {
+  const [cart, setCart] = useState([]);
   return (
     <div className="App">
       {/* Nav */}
-      <Navbar />
+      <Navbar cart={cart} />
       <div className="">
         <Routes>
           <Route
             path="/shop"
             element={
               <RequireAuth>
-                <Shop />
+                <Shop setCart={setCart} />
               </RequireAuth>
             }
           />
@@ -27,7 +29,7 @@ function App() {
             path="/cart"
             element={
               <RequireAuth>
-                <Cart />
+                <Cart cart={cart} />
               </RequireAuth>
             }
           />
