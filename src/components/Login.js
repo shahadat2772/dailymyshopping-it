@@ -39,8 +39,12 @@ const Login = () => {
   }
 
   return (
-    <div className="loginContainer flex justify-center items-center h-[88vh]">
-      <form onSubmit={(e) => handleSignUp(e)} className="form p-10" action="">
+    <div className="loginContainer flex justify-center items-center h-[92vh]">
+      <form
+        onSubmit={(e) => handleSignUp(e)}
+        className="form p-10 md:w-[400px] lg:w-[400px] w-[330px]"
+        action=""
+      >
         <input
           required
           placeholder="Email"

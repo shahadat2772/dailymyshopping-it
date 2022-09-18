@@ -50,9 +50,7 @@ function App() {
           <Route
             path="/shop"
             element={
-              <RequireAuth>
-                <Shop setItemsFromDb={setItemsFromDb} products={products} />
-              </RequireAuth>
+              <Shop setItemsFromDb={setItemsFromDb} products={products} />
             }
           />
           <Route

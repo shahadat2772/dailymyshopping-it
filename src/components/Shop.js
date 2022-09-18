@@ -1,7 +1,12 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
+import auth from "../firebase.init";
 import { addToDb } from "../utilities/fakedb";
 
 const Shop = ({ products, setItemsFromDb }) => {
+  const [user, loading] = useAuthState(auth);
+
   return (
     <div className="productsContainer max-w-7xl mx-auto grid gap-6 px-2 grid-cols-2 lg:grid-cols-3 md:grid-cols-3 justify-items-center mt-12">
       {products.map((product) => (
@@ -24,6 +29,12 @@ const Shop = ({ products, setItemsFromDb }) => {
             <div className="card-actions justify-end">
               <button
                 onClick={() => {
+                  if (!user) {
+                    toast.error("Please login first.", {
+                      id: "requireAuthErr",
+                    });
+                    return;
+                  }
                   addToDb(product.id);
                   setItemsFromDb();
                 }}

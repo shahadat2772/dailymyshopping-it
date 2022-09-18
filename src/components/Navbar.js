@@ -69,7 +69,7 @@ const Navbar = ({ cart }) => {
                       : "font-medium hover:text-primary duration-300"
                   }
                 >
-                  Login
+                  LOGIN
                 </NavLink>
               )}
             </li>
